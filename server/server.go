@@ -26,7 +26,7 @@ func handleConnection(conn net.Conn) {
 	for true {
 		pkg := container.NewPackage()
 		d := container.NewDecoder(conn)
-		if err := d.DecodeContainer(pkg); err != nil {
+		if _, err := d.DecodeContainer(pkg); err != nil {
 			fmt.Println(err)
 			break
 		}
